@@ -22,8 +22,32 @@ export const getDatabase = async (notionClient: Client, databaseId: string): Pro
   })
 }
 
-/// [example]
-///
+// [example]
+// ```typescript
+//   await writeRecord(notionClient, {
+//     parent: {
+//       database_id: databaseId
+//     },
+//     properties:  {
+//       Title: {
+//         title: [{
+//           text: {
+//             content: 'title'
+//           }
+//         }],
+//         type: 'title'
+//       },
+//       Description: {
+//         rich_text: [{
+//           text: {
+//             content: 'description',
+//           }
+//         }],
+//         type: 'rich_text'
+//       },
+//     }
+//   })
+//  ```
 export const writeRecord = async (notionClient: Client, params: CreatePageParameters): Promise<void> => {
   await notionClient.pages.create(params)
 }
